@@ -13,10 +13,13 @@ while(true){
             modulo.listar();
             break;
         case '3':
+            modulo.alterar();
             break;
         case '4':
+            modulo.excluir();
             break;
         case '5':
+            console.log("Até mais!");
             break;
         default:
             console.log("Opção inválida");        

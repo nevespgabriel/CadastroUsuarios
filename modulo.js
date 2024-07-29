@@ -97,11 +97,23 @@ const alterar = () => {
         usuarios[indice].telefones = telefones();
     } else{
         console.log("Não foi cadastrado nenhum usuário.");
+    } 
+}
+
+const excluir = () => {
+    if(usuarios.length > 0){
+        listar();
+        const indice = validarIndice();
+        usuarios.splice(indice, 1);
+        console.log("Usuário excluído com sucesso.");
+    } else{
+        console.log("Nenhum usuário foi cadastrado.");
     }
-        
 }
 
 module.exports = {
     cadastrar,
-    listar
+    listar, 
+    alterar,
+    excluir
 }
