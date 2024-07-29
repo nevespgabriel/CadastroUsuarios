@@ -15,15 +15,17 @@ const validarNome = () => {
 
 const validarIndice = () => {
     while(true){
-        let indice = prompt("Digite o índice do usuário que deseja alterar: ").trim();
-        usuarios.forEach((usuario) => {
-            if(usuario.indice == indice){
-                return Number(indice);
-            }
-        })
+        let indice = prompt("Digite o id do usuário: ").trim();
+        if(!isNaN(indice)){
+            indice = Number(indice);
+            for(let c=0; c<usuarios.length; c++){
+                if(usuarios[c].id == indice){
+                    return Number(indice) - 1;
+                }
+            }   
+        }
         console.log("Índice inválido")
     }
-    
 }
 
 const validarEmail = () => {
