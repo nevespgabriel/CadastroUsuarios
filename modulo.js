@@ -13,6 +13,19 @@ const validarNome = () => {
     }
 }
 
+const validarIndice = () => {
+    while(true){
+        let indice = prompt("Digite o índice do usuário que deseja alterar: ").trim();
+        usuarios.forEach((usuario) => {
+            if(usuario.indice == indice){
+                return Number(indice);
+            }
+        })
+        console.log("Índice inválido")
+    }
+    
+}
+
 const validarEmail = () => {
     while(true){
         const email = prompt("Digte o seu email: ").trim();
@@ -53,24 +66,39 @@ const cadastrar = () => {
     usuario.nome = validarNome();
     usuario.email = validarEmail();
     usuario.telefones = telefones();
+    usuarios.push(usuario);
 }
 
 const listar = () => {
-    usuarios.forEach((usuario) => {
-        console.log("=========================");
-        console.log("Id: " + usuario.id);
-        console.log("Nome: " + usuario.nome);
-        console.log("Email: " + usuario.email);
-        console.log("Telefones:");
-        for(let c=0; c<usuario.telefones.length; c++){
-            console.log("• " + usuario.telefones[c]);
-        }
-        console.log("=========================");
-    })
+    if(usuarios.length > 0){
+        usuarios.forEach((usuario) => {
+            console.log("=========================");
+            console.log("Id: " + usuario.id);
+            console.log("Nome: " + usuario.nome);
+            console.log("Email: " + usuario.email);
+            console.log("Telefones:");
+            for(let c=0; c<usuario.telefones.length; c++){
+                console.log("• " + usuario.telefones[c]);
+            }
+            console.log("=========================");
+        })
+    } else{
+        console.log("Não foi cadastrado nenhum usuário.");
+    }
+        
 }
 
 const alterar = () => {
-    
+    if(usuarios.length > 0){
+        listar();
+        const indice = validarIndice();
+        usuarios[indice].nome = validarNome();
+        usuarios[indice].email = validarEmail();
+        usuarios[indice].telefones = telefones();
+    } else{
+        console.log("Não foi cadastrado nenhum usuário.");
+    }
+        
 }
 
 module.exports = {
