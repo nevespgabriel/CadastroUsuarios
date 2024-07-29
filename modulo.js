@@ -55,6 +55,20 @@ const cadastrar = () => {
     usuario.telefones = telefones();
 }
 
+const listar = () => {
+    usuarios.forEach((usuario) => {
+        console.log("=========================");
+        console.log("Id: " + usuario.id);
+        console.log("Nome: " + usuario.nome);
+        console.log("Email: " + usuario.email);
+        console.log("Telefones:");
+        for(let c=0; c<usuario.telefones.length; c++){
+            console.log("• " + usuario.telefones[c]);
+        }
+        console.log("=========================");
+    })
+}
+
 module.exports = {
     cadastrar
 }

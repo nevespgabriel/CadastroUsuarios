@@ -10,6 +10,7 @@ while(true){
             modulo.cadastrar();
             break;
         case '2':
+            modulo.listar();
             break;
         case '3':
             break;
