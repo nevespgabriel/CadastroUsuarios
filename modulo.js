@@ -69,6 +69,11 @@ const listar = () => {
     })
 }
 
+const alterar = () => {
+    
+}
+
 module.exports = {
-    cadastrar
+    cadastrar,
+    listar
 }
